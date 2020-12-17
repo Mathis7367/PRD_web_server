@@ -38,8 +38,8 @@ if ('admin' != $_SESSION['username']){
                     <ul>
 						<li><a href="admindata.php">Admin</a></li>
                         <li><a href="admin.php">Accueil</a></li>
-                        <li><a href="Teampage.php">Données</a></li>
-                        <li><a href="Sourcespage.php">Climatisation</a></li>
+                        <li><a href="sensor_admin.php">Données</a></li>
+                        <li><a href="climatisation.php">Climatisation</a></li>
 
 
                     </ul>
@@ -72,9 +72,9 @@ if ('admin' != $_SESSION['username']){
                     <h1>Membres du projet :</h1>
                     <div id="list_team"> 
                         <ul>
-                            <li><a href="#">Ayrton Kossi</a></li> 
-                            <li><a href="#">Alexandre Roux</a></li>
-                            <li><a href="#">Mathis Thomas</a></li>
+                            <li><a href="https://www.linkedin.com/in/ayrton-kossi-50980012a/">Ayrton Kossi</a></li> 
+                            <li><a href="https://www.linkedin.com/in/alexandre-roux-2969b9151/">Alexandre Roux</a></li>
+                            <li><a href="https://www.linkedin.com/in/mathis-thomas-5b9b62172/">Mathis Thomas</a></li>
                             
                         </ul>                      
                     </div>

@@ -13,35 +13,21 @@ MQTT_USER = 'PRD'
 MQTT_PASSWORD = 'ECAM'
 MQTT_TOPIC = 'python/temp'
 MQTT_TOPIC2 = 'python/clim'
-MQTT_TOPIC3 = 'python/chauff'
 
 
 
 def on_connect(client, userdata, flags, rc):
     """ The callback for when the client receives a CONNACK response from the server."""
     print('Connected with result code ' + str(rc))
-    client.subscribe([(MQTT_TOPIC, 0), (MQTT_TOPIC2, 0)])
+    client.subscribe(MQTT_TOPIC)
 
 def on_message(client, userdata, msg):
     """The callback for when a PUBLISH message is received from the server."""
-    # message = (msg.payload)
-    # print (msg.topic, (message))
-    global temp
-    global clim
+    message = (msg.payload)
+    print (msg.topic, (message))
+    cursor.execute("""INSERT INTO `sensors` (`Temperature`) VALUES (%s) """,(temp))
+    connection.commit()
     
-    if (msg.topic == 'python/temp') :
-        temp = msg.payload
-        print("temp :", temp)
-        
-    else:
-        clim = msg.payload
-        cursor.execute("""INSERT INTO `sensors` (`Temperature`,`state`) VALUES (%s, %s) """,(temp, clim))
-        connection.commit()
-        print("clim :", clim)
-        # cursor.execute("""INSERT INTO `sensors` (`Temperature`,`state`) VALUES (%s, %s) """,(temp, clim))
-        # connection.commit()
-    
-
     
  
     

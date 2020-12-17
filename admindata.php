@@ -12,42 +12,6 @@ if ('admin' != $_SESSION['username']){
     header("location: logout.php");
     exit;
 }
-// ignore_user_abort(TRUE);
-
-// require('./phpMQTT.php');
-
-
-// $server = '192.168.43.181';     // change if necessary
-// $port = 1883;                     // change if necessary
-// $username = 'PRD';                   // set your username
-// $password = 'ECAM';                   // set your password
-// $client_id = 'phpMQTT-subscriber'; // make sure this is unique for connecting to sever - you could use uniqid()
-
-// $mqtt = new Bluerhinos\phpMQTT($server, $port, $client_id);
-// if(!$mqtt->connect(true, NULL, $username, $password)) {
-	// exit(1);
-// }
-
-// $mqtt->debug = true;
-
-// $topics['bluerhinos/phpMQTT/examples/publishtest'] = array('qos' => 0, 'function' => 'procMsg');
-// $mqtt->subscribe($topics, 0);
-
-// while($mqtt->proc()) {
-
-// }
-
-// $mqtt->close();
-
-// function procMsg($topic, $msg){
-		// echo 'Msg Recieved: ' . date('r') . "\n";
-		// echo "Topic: {$topic}\n\n";
-		// echo "\t$msg\n\n";
-// }
-
-//system('D:\Python suscribe.py &');
-
-//shell_exec("suscribe.py '".$post_id."' 'alert' >> paging.log &");
 
  ?>
 <!DOCTYPE html>		<!-- DOCTYPE is use to put this webpage in HTML5 -->
@@ -73,8 +37,8 @@ if ('admin' != $_SESSION['username']){
                     <ul>
 						<li><a href="admindata.php">Admin</a></li>
                         <li><a href="admin.php">Accueil</a></li>
-                        <li><a href="Teampage.php">Données</a></li>
-                        <li><a href="Sourcespage.php">Climatisation</a></li>
+                        <li><a href="sensor_admin.php">Données</a></li>
+                        <li><a href="climatisation.php">Climatisation</a></li>
 
 
                     </ul>
@@ -112,9 +76,9 @@ if ('admin' != $_SESSION['username']){
                     <h1>Membres du projet :</h1>
                     <div id="list_team"> 
                         <ul>
-                            <li><a href="#">Ayrton Kossi</a></li> 
-                            <li><a href="#">Alexandre Roux</a></li>
-                            <li><a href="#">Mathis Thomas</a></li>
+                            <li><a href="https://www.linkedin.com/in/ayrton-kossi-50980012a/">Ayrton Kossi</a></li> 
+                            <li><a href="https://www.linkedin.com/in/alexandre-roux-2969b9151/">Alexandre Roux</a></li>
+                            <li><a href="https://www.linkedin.com/in/mathis-thomas-5b9b62172/">Mathis Thomas</a></li>
                             
                         </ul>                      
                     </div>

@@ -37,9 +37,9 @@ if ('admin' != $_SESSION['username']){
                 <nav>		<!-- Inside this tag we create the drop-down menu to acces in differants pages -->
                     <ul>
 						<li><a href="admindata.php">Admin</a></li>
-                        <li><a href="admin.php">Homepage</a></li>
-                        <li><a href="Teampage.php">Données</a></li>
-                        <li><a href="Sourcespage.php">Sources</a></li>
+                        <li><a href="admin.php">Accueil</a></li>
+                        <li><a href="sensor_admin.php">Données</a></li>
+                        <li><a href="climatisation.php">Climatisation</a></li>
 
 
                     </ul>
@@ -62,19 +62,20 @@ if ('admin' != $_SESSION['username']){
 							<li><a href="logs.php">Logs</a></li>
 						</ul>
 					<nav>
-					<?php
+						<?php
 						$mysqli = new mysqli("localhost", "root", "", "users");
 						$mysqli -> set_charset("utf8");
 						$requete = "SELECT * FROM attempt";
 						$resultat = $mysqli -> query($requete);
-						echo 'N°' . ' ' . 'Username' . ' ' . 'Password used' . ' ' . 'Tried at' . '<br>';
+						echo "<table border=1 align = center><tr><th>N° </th><th>Nom d'utilisateur </th><th>Mot de passe </th><th>Tentative le :  </th></tr><align center>";
 						while ($ligne = $resultat -> fetch_assoc()) {
+							echo "<tr><th>$ligne[nb] </th><th>$ligne[username] </th><th>$ligne[password] </th><th>$ligne[tried_at] </th></tr><align center>";
 							
-							echo $ligne['nb'] . ' ' . $ligne['username'] . ' ' . $ligne['password'] . ' '. $ligne['tried_at'] . '<br> ';
-							//echo $ligne['email'] . ' ' . $ligne['date_naissance'] . '<br>';
 						}
-		$mysqli->close();
-		?>
+						echo"</table>";
+						$mysqli->close();
+						?>
+					</nav>
 					</p>
                 </article>           
             </section>
@@ -85,9 +86,9 @@ if ('admin' != $_SESSION['username']){
                     <h1>The Team</h1>
                     <div id="list_team"> 
                         <ul>
-                            <li><a href="#">Ayrton Kossi</a></li> 
-                            <li><a href="#">Alexandre Roux</a></li>
-                            <li><a href="#">Mathis Thomas</a></li>
+                            <li><a href="https://www.linkedin.com/in/ayrton-kossi-50980012a/">Ayrton Kossi</a></li> 
+                            <li><a href="https://www.linkedin.com/in/alexandre-roux-2969b9151/">Alexandre Roux</a></li>
+                            <li><a href="https://www.linkedin.com/in/mathis-thomas-5b9b62172/">Mathis Thomas</a></li>
                             
                         </ul>                      
                     </div>

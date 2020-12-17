@@ -7,11 +7,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true ){
     header("location: login.php");
     exit;
 }
-if ('admin' != $_SESSION['username']){
-    header("location: logout.php");
-    exit;
-}
-
 
  ?>
  
@@ -38,8 +33,8 @@ if ('admin' != $_SESSION['username']){
                     <ul>
 						<li><a href="admindata.php">Admin</a></li>
                         <li><a href="admin.php">Accueil</a></li>
-                        <li><a href="sensor_admin.php">Données</a></li>
-                        <li><a href="climatisation.php">Climatisation</a></li>
+                        <li><a href="Teampage.php">Données</a></li>
+                        <li><a href="Sourcespage.php">Climatisation</a></li>
 
 
                     </ul>
@@ -55,26 +50,13 @@ if ('admin' != $_SESSION['username']){
             
             <section>
                 <article>
-                    <nav>
-						<ul>
-					
-							<li><a href="users.php">Utilisateurs</a></li>
-							<li><a href="logs.php">Logs</a></li>
-						</ul>
-					<nav>
-					<?php
-						$mysqli = new mysqli("localhost", "root", "", "users");
-						$mysqli -> set_charset("utf8");
-						$requete = "SELECT * FROM users";
-						$resultat = $mysqli -> query($requete); 
-						echo "<table border=1 align = center><tr><th>Id </th><th>Nom d'utilisateur </th><th>Mot de passe </th><th>Créer le :  </th></tr><align center>";
-						while ($ligne = $resultat -> fetch_assoc()) {
-							echo "<tr><th>$ligne[id] </th><th>$ligne[username]</th><th>$ligne[password] </th><th>$ligne[created_at]  </th></tr>";
-							
-						}
-						echo "</table>";
-						$mysqli->close();
-					?>
+                    <h1><img src="images/database.png" alt="BDD Projet" class="ico_categorie" /></h1>
+                    <p>
+					<h1>Bienvenue  </h1></br></br>
+				
+
+
+
 					</p>
                 </article>           
             </section>
@@ -82,7 +64,7 @@ if ('admin' != $_SESSION['username']){
             <footer>		<!-- We create a footer where we can find image for some social media and the name of each team member -->
                 
                 <div id="the_team">
-                    <h1>The Team</h1>
+                    <h1>Membres du projet :</h1>
                     <div id="list_team"> 
                         <ul>
                             <li><a href="https://www.linkedin.com/in/ayrton-kossi-50980012a/">Ayrton Kossi</a></li> 

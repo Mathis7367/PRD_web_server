@@ -55,26 +55,25 @@ if ('admin' != $_SESSION['username']){
             
             <section>
                 <article>
-                    <nav>
-						<ul>
-					
-							<li><a href="users.php">Utilisateurs</a></li>
-							<li><a href="logs.php">Logs</a></li>
-						</ul>
-					<nav>
+                    <p>
+					<h1>Relevé des températures  </h1></br></br>
 					<?php
 						$mysqli = new mysqli("localhost", "root", "", "users");
 						$mysqli -> set_charset("utf8");
-						$requete = "SELECT * FROM users";
-						$resultat = $mysqli -> query($requete); 
-						echo "<table border=1 align = center><tr><th>Id </th><th>Nom d'utilisateur </th><th>Mot de passe </th><th>Créer le :  </th></tr><align center>";
+						$requete = "SELECT * FROM sensors ORDER by id DESC";
+						$resultat = $mysqli -> query($requete);
+						echo "<table border=1 align = center><tr><th>Id </th><th> TimeStamp</th><th>Temperature (°C) </th><th>Etat climatisation </th></tr><align center>";
 						while ($ligne = $resultat -> fetch_assoc()) {
-							echo "<tr><th>$ligne[id] </th><th>$ligne[username]</th><th>$ligne[password] </th><th>$ligne[created_at]  </th></tr>";
+							echo "<tr><th>$ligne[id]</th><th>$ligne[TimeDate]</th><th>$ligne[Temperature]</th><th>$ligne[state]</th></tr><align center>";
+							//echo $ligne['id'] . ' ' . $ligne['time'] . ' ' . $ligne['temp']  . '<br> ';
 							
 						}
 						echo "</table>";
-						$mysqli->close();
-					?>
+		$mysqli->close();
+		?>
+
+
+
 					</p>
                 </article>           
             </section>
@@ -82,7 +81,7 @@ if ('admin' != $_SESSION['username']){
             <footer>		<!-- We create a footer where we can find image for some social media and the name of each team member -->
                 
                 <div id="the_team">
-                    <h1>The Team</h1>
+                    <h1>Membres du projet :</h1>
                     <div id="list_team"> 
                         <ul>
                             <li><a href="https://www.linkedin.com/in/ayrton-kossi-50980012a/">Ayrton Kossi</a></li> 
