@@ -1,0 +1,19 @@
+p
+{
+	color: blue;
+}
+
+body 
+{
+	/*background-image: url("Ecamjolie.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: top center;*/
+	background: url("Ecamjolie.jpg") no-repeat fixed top center;
+     
+}
+h1
+{
+	/*background-image: url("logoecam.png");*/
+}
+
